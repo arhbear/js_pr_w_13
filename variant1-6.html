@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $('document').ready(function(){
+                $('#сonfirmEdit').click(function(){
+                    var val1 = $('#editValue').val();
+                    $('.inEdit').text(val1);
+                    $('.inEdit').removeClass();
+                    $('#edit').hide();
+                    $('#add').show();
+                    $('td').css("background-color","white");
+                });
+                $('#cancelEdit').click(function(){
+                    $('#edit').hide();
+                    $('#add').show();
+                    $('td').css("background-color","white");
+                });
+                $('td').click(function(){
+                    $('td').css("background-color","white");
+                    $('#edit').show();
+                    $('#add').hide();
+                    $(this).addClass('inEdit');
+                    var eq1 = $(this).text();
+                    $(this).css("background-color","red");
+                    $('#editValue').val(eq1);
+                });
+                $('#confirmAdd').click(function(){
+                    var addName = $('#addName').val();
+                    var addQuantity = $('#addQuantity').val();
+                    console.log(addName+" "+addQuantity);
+                    var oldHtml = $('table').html();
+                    $('table').html(oldHtml+'<tr> <td>'+addName+'</td> <td>'+addQuantity+'</td> </tr>')
+                });
+                $('#cancelAdd').click(function(){
+                    $('#addName').val("Item's name");
+                    $('#addQuantity').val("Item's quantity");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <table border="1" border-color="black">
+            <tr>
+                <td>Название товара</td><td>Количество(комплект)</td>
+            </tr>
+            <tr>
+                <td>Кроссовки</td><td>2</td>
+            </tr>
+            <tr>
+                <td>Джинсы</td><td>5</td>
+            </tr>
+            <tr>
+                <td>Кофты</td><td>1</td>
+            </tr>
+            <tr>
+                <td>Майки</td><td>4</td>
+            </tr>
+            <tr>
+                <td>Кардиганы</td><td>8</td>
+            </tr>
+            <tr>
+                <td>Брюки</td><td>7</td>
+            </tr>
+            <tr>
+                <td>Пиджаки</td><td>0</td>
+            </tr>
+            <tr>
+                <td>Футболки</td><td>1</td>
+            </tr>
+            <tr>
+                <td>Кепки</td><td>6</td>
+            </tr>
+            <tr>
+                <td>Очки</td><td>9</td>
+            </tr>
+            <tr>
+                <td>Шарфы</td><td>5</td>
+            </tr>
+            <tr>
+                <td>Шорты</td><td>12</td>
+            </tr>
+        </table>
+        <br>
+        <div id="edit" hidden>
+            <input type="text" id="editValue" value="Item's value"> <br><br>
+            <button type="button" name="сonfirmEdit" id="сonfirmEdit">Confirm edit</button>
+            <button type="button" name="cancelEdit" id="cancelEdit">Cancel edit</button>
+        </div>
+        <div id="add">
+            <input type="text" id="addName" value="Item's name"> <br><br>
+            <input type="text" id="addQuantity" value="Item's quantity"><br><br>
+            <button type="button" name="confirmAdd" id="confirmAdd">Add</button>
+            <button type="button" name="cancelAdd" id="cancelAdd">Cancel Add</button>
+        </div>
+        <div id="test">
+
+        </div>
+    </body>
+</html>

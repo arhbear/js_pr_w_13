@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $('document').ready(function(){
+                $(function(){
+                    $("div:first").data("employee", {
+                        name: "Иванов",
+                        age: 27,
+                        phone: "+375 29 217-77-77",
+                        group: "20bsuinf"
+                    });
+                    $("button:first").click(function(){
+                        $("p span:eq(0)").text($("div:first").data("employee").name);
+                        $("p span:eq(1)").text($("div:first").data("employee").age);
+                        $("p span:eq(2)").text($("div:first").data("employee").phone);
+                        $("p span:eq(3)").text($("div:first").data("employee").group);
+                    });
+                    $("button:last").click(function(){
+                        $("p span").empty();
+                        $("div:first").removeData("employee");
+                    });
+                });
+            })
+
+        </script>
+    </head>
+    <body>
+        <div>
+
+        </div>
+        <p><span></span></p>
+        <p><span></span></p>
+        <p><span></span></p>
+        <p><span></span></p>
+        <button>button1</button>
+        <button>button2</button>
+    </body>
+</html>
